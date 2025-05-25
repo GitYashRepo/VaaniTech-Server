@@ -1,0 +1,49 @@
+<%- include('./partials/header'); %>
+
+<body class="bg-gray-100">
+  <div class="max-w-4xl mx-auto py-10">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Edit Product</h1>
+    <form action="/v1/products/update/<%= product._id %>" method="POST" enctype="multipart/form-data" class="bg-white shadow rounded-lg p-6">
+
+      <div class="mb-4">
+        <label>Name</label>
+        <input type="text" name="name" value="<%= product.name %>" required class="w-full border rounded p-2" />
+      </div>
+
+      <div class="mb-4">
+        <label>Price</label>
+        <input type="number" name="price" value="<%= product.price %>" required class="w-full border rounded p-2" />
+      </div>
+
+      <div class="mb-4">
+        <label>Stock</label>
+        <input type="number" name="stock" value="<%= product.stock %>" required class="w-full border rounded p-2" />
+      </div>
+
+      <div class="mb-4">
+        <label>Description</label>
+        <textarea name="description" rows="4" required class="w-full border rounded p-2"><%= product.description %></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label>Category</label>
+        <select name="category" required class="w-full border rounded p-2">
+          <% categories.forEach(function(categ){ %>
+            <option value="<%= categ.name %>" <% if (categ.name === product.category) { %> selected <% } %>>
+              <%= categ.name %>
+            </option>
+          <% }); %>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label>Upload New Images (optional)</label>
+        <input type="file" name="images" multiple class="w-full border rounded p-2" />
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update Product</button>
+    </form>
+  </div>
+</body>
+
+<%- include('./partials/footer'); %>

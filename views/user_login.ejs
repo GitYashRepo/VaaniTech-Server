@@ -1,0 +1,23 @@
+<%- include('./partials/header'); %>
+
+    <body class="h-screen w-screen flex items-center justify-center bg-gray-100">
+
+        <div class="relative h-full w-full">
+            <!-- Full-screen Image -->
+             <div class="m-auto w-[40vw] absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]">
+                 <img src="/blackOneText.png" alt="Background Image" class="object-cover w-full h-full pb-4">
+                 <p class="text-xl text-center mt-[-5vh]">A Home Voice Assistant Brand.</p>
+             </div>
+
+            <!-- Button at the Bottom -->
+            <div class="absolute bottom-0 w-full flex justify-center mb-8">
+                <a href="/v1/auth/google"
+                    class="bg-black text-white font-semibold py-3 px-6 rounded-lg hover:bg-black transition duration-300">
+                    Continue with Google
+                </a>
+            </div>
+        </div>
+
+    </body>
+
+    <%- include('./partials/footer'); %>
